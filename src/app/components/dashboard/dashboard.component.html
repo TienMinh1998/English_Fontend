@@ -1,0 +1,86 @@
+
+<div class="container">
+  <mat-card appearance="outlined" style="margin-bottom: 5px;">
+    
+    <mat-card-content>
+      <div >
+        <i class="bi bi-person"></i>  <span style="text-shadow: 0cqmax; color: brown; font-weight: bold;">Hi!</span> Nguyễn Viết Minh Tiến
+      </div>
+    
+      <div>
+
+      </div>
+    </mat-card-content>
+  
+  </mat-card>
+
+
+   <div class="search-hero">
+    <input class="form-control" type="text" name="txt_search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching english keys">
+  </div>
+
+  <mat-card appearance="outlined" style="margin-bottom: 5px;">
+   
+    <mat-card-content>
+
+      
+
+      <button (click)="OpenAddWindow()" style="margin-bottom: 5px;" type="button" class="btn btn-outline-dark">
+        <i class="bi bi-plus-circle-dotted"></i> Add</button>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="english">
+          <th mat-header-cell *matHeaderCellDef> English </th>
+          <td mat-cell *matCellDef="let element"> {{element.english}} </td>
+        </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="note">
+              <th mat-header-cell *matHeaderCellDef> Meaning </th>
+              <td mat-cell *matCellDef="let element"> {{element.note}} </td>
+            </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> PHONETIC </th>
+          <td mat-cell *matCellDef="let element"> {{element.phonetic}} </td>
+        </ng-container>
+      
+    
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="audio">
+          <th mat-header-cell *matHeaderCellDef> AUDIO </th>
+          <td mat-cell *matCellDef="let item">
+            <button class="btn btn-success" (click)="playAudio(item.audio)"><i class="bi bi-volume-up-fill"></i></button> 
+          </td>
+          
+        </ng-container>
+      
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      </table>
+    </mat-card-content>
+  
+  </mat-card>
+
+  <mat-paginator [length]="100"
+        (page)="handlePageEvent($event)"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+</div>
+

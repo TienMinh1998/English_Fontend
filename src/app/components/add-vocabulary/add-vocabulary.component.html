@@ -1,0 +1,29 @@
+
+<div style="height: 50px;" class="container">
+
+</div>
+
+<div class="container">
+  <mat-card appearance="outlined" style="margin-bottom: 5px;">
+    <mat-card-content>
+      <form>
+        <div class="form-group">
+          
+          <label for="exampleInputEmail1">TRANG THÊM TỪ MỚI</label>
+          <div style="height: 10px;"></div>
+          <input  class="form-control" name="txt_english" [(ngModel)]="addModel.english"  placeholder="Nhập từ mới vào đây">
+        </div>
+         <div style="height: 10px;"></div>
+         <div style="display: flex; justify-content: flex-end;">
+          <button   class="btn btn-success" (click)="AddQuestionForAdmin()">Thêm từ mới</button>
+         </div>
+       
+      
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+</div>
