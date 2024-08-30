@@ -24,9 +24,13 @@
     <mat-card-content>
 
       
-
-      <button (click)="OpenAddWindow()" style="margin-bottom: 5px;" type="button" class="btn btn-outline-dark">
-        <i class="bi bi-plus-circle-dotted"></i> Add</button>
+  <div style="display: flex; justify-content: center;">
+    <button (click)="OpenAddWindow()" style="margin-bottom: 5px;" type="button" class="btn btn-outline-dark">
+      <i class="bi bi-plus-circle-dotted"></i>  Thêm từ mới
+    </button>
+   
+  </div>
+  <div style="height: 10px;"></div>
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -42,7 +46,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="english">
           <th mat-header-cell *matHeaderCellDef> English </th>
-          <td mat-cell *matCellDef="let element"> {{element.english}} </td>
+          <td class="text_shadow" mat-cell *matCellDef="let element"> {{element.english}} </td>
         </ng-container>
             <!-- Name Column -->
             <ng-container matColumnDef="note">
