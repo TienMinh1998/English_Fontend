@@ -31,6 +31,9 @@ export class DashboardComponent implements OnInit {
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
   searchText: String = '';
+  input_english: String = '';
+  input_phonetic: String = '';
+  hiden_status = true;
   dataSource: VocabularyModel[] = [
   ];
 
@@ -82,5 +85,9 @@ export class DashboardComponent implements OnInit {
     console.log(this.pageSize);
     console.log(this.pageIndex);
     this.getAllVocabulary();
+  }
+
+  showbuttonAddVocabulary(){
+   this.hiden_status = !this.hiden_status;
   }
 }

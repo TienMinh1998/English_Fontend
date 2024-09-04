@@ -12,9 +12,9 @@
 
   .search-hero {
     max-width: 500px;
-    padding-bottom: 50px;
-    padding-top: 50px;
     margin:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .form-control {
@@ -29,5 +29,6 @@
     font-weight: bold;
     letter-spacing: 2px;
      text-shadow: 2px 2px 5px gray;
+     font-size: 20px;
   }
   

@@ -2,22 +2,35 @@
 <div class="container">
   <mat-card appearance="outlined" style="margin-bottom: 5px;">
     
-    <mat-card-content>
+    <mat-card-content [hidden]="false">
       <div >
         <i class="bi bi-person"></i>  <span style="text-shadow: 0cqmax; color: brown; font-weight: bold;">Hi!</span> Nguyễn Viết Minh Tiến
       </div>
     
       <div>
-
+        <button (click)="showbuttonAddVocabulary()" style="margin-bottom: 5px;" type="button" class="btn btn-outline-dark">
+          <i class="bi bi-plus-circle-dotted"></i>  Thêm từ mới
+        </button>
       </div>
     </mat-card-content>
   
   </mat-card>
 
+<div class="add_vocap" [hidden]="hiden_status">
 
-   <div class="search-hero">
-    <input class="form-control" type="text" name="txt_search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching english keys">
+  <div class="search-hero">
+    <input class="form-control" type="text" name="txt_search" [(ngModel)]="input_english" autocomplete="off" placeholder="&#61442;  english">
   </div>
+  <div class="search-hero">
+    <input class="form-control" type="text" name="txt_phonetic" [(ngModel)]="input_phonetic" autocomplete="off" placeholder="&#61442;  phonetic">
+  </div>
+  <div class="search-hero">
+    <input class="form-control" type="text" name="txt_phonetic" [(ngModel)]="input_phonetic" autocomplete="off" placeholder="&#61442;  note">
+  </div>
+</div>
+
+
+
 
   <mat-card appearance="outlined" style="margin-bottom: 5px;">
    
