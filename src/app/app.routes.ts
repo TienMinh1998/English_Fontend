@@ -6,7 +6,7 @@ import { AddVocabularyComponent } from './components/add-vocabulary/add-vocabula
 import { AdminLteComponent } from './components/admin-lte/admin-lte.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/admin', pathMatch: 'full' },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     {path: 'home', component:DashboardComponent},
     {path: 'login', component:LoginComponent},
     {path: 'tabletest', component:TableDynamicArrayDataExample},

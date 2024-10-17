@@ -24,15 +24,22 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+                
+              },"src/assets","src/js"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+               "src/css/login/style.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/loginjs/bootstrap.min.js",
+              "src/assets/loginjs/jquery.min.js",
+              "src/assets/loginjs/main.js",
+              "src/assets/loginjs/popper.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -45,12 +52,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "5MB",
+                  "maximumError": "10MB"
                 }
               ],
               "outputHashing": "all"
@@ -90,13 +97,19 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },"src/assets","src/js"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/login/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/loginjs/bootstrap.min.js",
+              "src/assets/loginjs/jquery.min.js",
+              "src/assets/loginjs/main.js",
+              "src/assets/loginjs/popper.js"
+            ]
           }
         }
       }

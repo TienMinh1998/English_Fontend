@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Console } from 'console';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { EnglishSearchModel } from './SearchModelEnglsh';
 
 @Component({
   selector: 'app-admin-lte',
@@ -19,6 +20,8 @@ export class AdminLteComponent implements OnInit  {
   numOfVocabylary : number = 0;
   url : string = '';
   word: string = '';
+  englishSearch: EnglishSearchModel = new EnglishSearchModel(); // Khởi tạo model
+  
   constructor(private http:HttpClient, private router:Router) {
 
   }
@@ -31,6 +34,8 @@ export class AdminLteComponent implements OnInit  {
     const server = AppSetting.apiUrl;
     const token =  localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization',`Bearer ${token}`)
+    
+
     this.http.get(`${server}/api/QuestionStandard/admin_infomation`,{headers}).subscribe((res:any)=>{
      if(res.status==200)
      {
@@ -43,12 +48,20 @@ export class AdminLteComponent implements OnInit  {
     this.router.navigate(['/home']);
   }
 
+  // search từ mới 
   searchVocap(){
     if (this.word=='') {
       
     }
-    this.url = `https://dictionary.cambridge.org/dictionary/english/${this.word}`
-    window.open(this.url, '_blank');
+    const search_word = this.word;
+    const server = 'http://localhost:5080';
+    const headers = new HttpHeaders().set('x-api-key','537a4823-42c3-4960-8c75-5a5fa55a14ac')
+
+    this.http.get(`${server}/Vocabulary/search?word=${search_word}`,{headers}).subscribe((res:any)=>
+      {
+        this.englishSearch = res;
+        console.log(res);
+    })
   }
 
   clearInfomation(event: FocusEvent){
@@ -63,5 +76,11 @@ export class AdminLteComponent implements OnInit  {
     } else {
       inputElement.style.backgroundColor = 'yellow'; // Đổi lại màu nếu ô input trống
     }
+  }
+  playAudio() {
+    var audio = new Audio();
+    audio.src =  this.englishSearch.camVocabulary.audio;
+    audio.load();
+    audio.play();
   }
 }

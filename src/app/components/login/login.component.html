@@ -1,46 +1,82 @@
-
-
- <div> <!-- partial:index.partial.html --> 
-
-  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
-
-   <div class="signin"> 
-
-    <div class="content"> 
-
-     <h2>Sign In</h2> 
-
-     <div class="form"> 
-
-      <div class="inputBox"> 
-
-       <input type="text" required [(ngModel)]="loginObj.userName" name="txt_username"> <i>Username</i> 
-
-      </div> 
-
-      <div class="inputBox"> 
-
-       <input type="password" required [(ngModel)]="loginObj.password" name="txt_passwork"> <i>Password</i> 
-
-      </div> 
-
-      <div class="links"> <a href="#">Forgot Password</a> <a href="#">Signup</a> 
-
-      </div> 
-
-      <div class="inputBox"> 
-
-       <input type="button" value="Đăng nhập" (click)="onLogin()"> 
-       <input  type="button" value="CREATE NEW TOKEN" (click)="getCustomer()"> 
-      </div> 
-
-     </div> 
-
-    </div> 
-l
-   </div> 
-
-  </section> <!-- partial --> 
-
-</div>
-
+<body
+  class="img js-fullheight"
+  style="background-image: url('../../../assets/images/bg.jpg')"
+>
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+          <h2 class="heading-section">FORM SING IN</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap p-0">
+            <form action=""class="signin-form" method="post"
+              [formGroup]="loginForm"
+              (submit)="onSupmit()"
+            >
+              <div class="form-group">
+                <!--user_name-->
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="userName"
+                  placeholder="User Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <!--password-->
+                <input
+                  id="password-field"
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
+                <span
+                  toggle="#password-field"
+                  class="fa fa-fw fa-eye field-icon toggle-password"
+                ></span>
+              </div>
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="form-control btn btn-primary submit px-3"
+                >
+                  Sign In
+                </button>
+              </div>
+              <div class="form-group d-md-flex">
+                <div class="w-50">
+                  <label class="checkbox-wrap checkbox-primary"
+                    >Remember Me
+                    <input type="checkbox" checked />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="w-50 text-md-right">
+                  <a href="#" style="color: #fff">Forgot Password</a>
+                </div>
+              </div>
+            </form>
+            <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+            <div
+              class="social d-flex text-center"
+              style="display: flex; justify-content: center"
+            >
+              <button
+                style="justify-content: center"
+                class="text-center btn btn-danger"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
